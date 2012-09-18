@@ -1,0 +1,143 @@
+*vim-cmake.txt*   CMake Reference And Autocompletion             Aug 09, 2012
+
+Author:     Michael Jansen  <kde@michael-jansen.biz>
+Copyright:  (C) 2012 Michael Jansen                      *ref-cmake-copyright*
+License:    MIT license {{{
+
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+    }}}
+
+=============================================================================
+CONTENT                                                      *ref-cmake* {{{1
+
+    INTRODUCTION ...........|ref-cmake-introduction|
+    USAGE ..................|ref-cmake-usage|
+    INSTALL ................|ref-cmake-install|
+    CONFIGURATION ..........|ref-cmake-examples|
+    API ....................|ref-cmake-api|
+    CHANGELOG ..............|ref-cmake-changelog|
+
+=============================================================================
+INTRODUCTION                                    *ref-cmake-introduction* {{{1
+
+This plugin adds cmake support to the following plugins:
+
+    - vim-ref       Integrated reference viewer.
+                    https://github.com/thinca/vim-ref
+
+    - neocomplcache Ultimate auto-completion system for Vim.
+                    https://github.com/Shougo/neocomplcache
+
+    - unite.vim     Ultimate interface to unite all sources
+                    https://github.com/Shougo/unite.vim (via vim-ref)
+
+Or in less words. It provides a cmake reference and an auto completion system
+that hooks into neocomplcache.
+
+The information is acquired from the cmake executable found on $PATH.
+
+=============================================================================
+USAGE                                                  *ref-cmake-usage* {{{1
+
+The plugin does not provide any kind of interface by itself. To use its
+functionality you have to use one of the following plugins:
+
+CMAKE REFERENCE~
+
+Using the vim-ref plugin - see|ref-introduction|- which allows command line
+completion.
+ >
+  :Ref cmake [keyword]
+
+Using the unite plugin see -|unite-introduction|- which has quite some nice
+ways of handling its sources.
+>
+  :Unite ref/cmake
+
+CMAKE AUTOCOMPLETION~
+
+CMake autocompletion is provided by hooking into neocomplcache if the filetype
+is 'cmake'. See|neocomplache-introduction|for further informaation.
+
+=============================================================================
+CONFIGURATION                                       *ref-cmake-examples* {{{1
+
+CMAKE EXECUTABLE~
+
+Use this option to specify where the cmake executable is located. By default
+it is searched on the $PATH. You can specify an absolute path or just a
+different name like 'cmake-2.8'.
+>
+  :let g:vim_cmake_executable = 'cmake'
+
+CCMAKE EXECUTABLE~
+
+Use this option to specify where the ccmake executable is located. By default
+it is searched on the $PATH. You can specify an absolute path or just a
+different name like 'ccmake-2.8'.
+>
+  :let g:vim_ccmake_executable = 'ccmake'
+
+CPACK EXECUTABLE~
+
+Use this option to specify where the cpack executable is located. By default
+it is searched on the $PATH. You can specify an absolute path or just a
+different name like 'cpack-2.8'.
+>
+  :let g:vim_ctest_executable = 'cpack'
+
+CTEST EXECUTABLE~
+
+Use this option to specify where the ctest executable is located. By default
+it is searched on the $PATH. You can specify an absolute path or just a
+different name like 'ctest-2.8'.
+>
+  :let g:vim_ctest_executable = 'ctest'
+
+DISABLE AUTOCOMPLETION~
+
+To disable the autocompletion part of neocomplcache you have to use the
+neocomplcache configuration options. |g:neocomplcache_source_disable|
+>
+  :let g:neocomplcache_source_disable['cmake_complete'] = 1
+
+=============================================================================
+API                                                      *ref-cmake-api* {{{1
+
+This plugin provides some kind of api to acquire cmake help information.
+Please refer to autoload/cmake.vim for reference. If you start to use it
+PLEASE contact me so i know it is official api.
+
+If you like to extend this plugin. Feel free. I long for patches.
+
+=============================================================================
+CHANGELOG                                          *ref-cmake-changelog* {{{1
+
+  1.1:
+    - added g:vim_cmake_executable
+
+  1.0: Initial Version
+    - plug into neocomplcache
+    - plug into unite.vim
+    - plug into vim-ref
+
+=============================================================================
+Modelines: {{{1
+vim:tw=78:ts=8:ft=help:fdm=marker:

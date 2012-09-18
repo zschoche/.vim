@@ -1,0 +1,61 @@
+# Namespace
+snippet namespace
+	namespace ${1:name} 
+	{
+		${2}
+	} /* $1 */
+# Class
+snippet class
+	class ${1:`Filename('$1', 'name')`} 
+	{
+	public:
+	
+	$1 (${2:arguments});
+		virtual ~$1 ();
+
+	private:
+		${3:/* data */}
+	};
+
+# For
+snippet for
+	for (int i = 0; $1 < ${1:count}; i++) 
+	{
+	
+	}
+# Header
+snippet header
+	/*
+	*
+	*	Author: Philipp Zschoche
+	*
+	*/
+	#ifndef __${1:`toupper(Filename('$1', 'UNTITLED'))`}_HPP__
+	#define __$1_HPP__
+
+
+
+	#endif /* __$1_HPP__ */
+# member function
+snippet func
+	${1:void} ${2:`Filename('$1', 'UNTITLED'))`}::${3:name}(${4:args})
+	{
+
+	}
+# getter
+snippet getter
+	inline void ${1:name}(const ${2:type}& value) const
+	{
+		m_$1 = value;
+	}
+# getter and setter
+snippet gettersetter
+	inline void ${1:name}(const ${2:type}& value) const
+	{
+		m_$1 = value;
+	}
+
+	inline const $2& $1() const
+	{
+		return m_$1;
+	}
