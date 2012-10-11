@@ -23,6 +23,9 @@ map <C-A-Down> :wincmd j<CR>
 
 map <F2> :UpdateCodeCompletion<CR>
 
+map <F3>  :setlocal spell spelllang=de<CR>
+map <F4>  :setlocal spell spelllang=en<CR>
+
 
 nmap <silent> <F11> :CommandTBuffer<CR>
 nmap <C-F11> :CommandT<CR>
@@ -41,6 +44,7 @@ imap <C-@> <C-Space>
 filetype plugin on
 set autoindent
 set number
+set spelllang = en,de
 colorscheme codeschool
 nnoremap <silent> <F12> :TlistToggle<CR>:TlistAddFilesRecursive . *.cpp<CR>:TlistAddFilesRecursive . *.hpp<CR>:TlistAddFilesRecursive . *.c<CR>:TlistAddFilesRecursive . *.h<CR>
 let Tlist_Ctags_Cmd = '/Users/philipp/Documents/C++/ctags-5.8/ctags'
@@ -54,6 +58,7 @@ command MM wa | make
 "clang_complete
 let g:clang_use_library = 1
 let g:clang_complete_auto = 0
+let g:clang_complete_copen = 1
 let g:clang_user_options = '-fexceptios'
 " OmniCppComplete
 "let OmniCpp_NamespaceSearch = 1
