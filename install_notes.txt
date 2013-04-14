@@ -1,0 +1,17 @@
+
+# Vim
+:BundleInstall
+
+# comandline
+
+## YouCompleteMe
+cd ~/.vim/bundle/YouCompleteMe/
+./install.sh --clang-completer
+
+## Command-T
+cd ~/.vim/ruby/command-t/
+ruby extconf.rb
+make
+
+##
+ln -s vimrc ~/.vimrc 

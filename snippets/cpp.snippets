@@ -28,6 +28,7 @@ snippet header
 	/*
 	*
 	*	Author: Philipp Zschoche
+	*	GitHub: https://github.com/zschoche
 	*
 	*/
 	#ifndef __${1:`toupper(Filename('$1', 'UNTITLED'))`}_HPP__
@@ -36,6 +37,17 @@ snippet header
 
 
 	#endif /* __$1_HPP__ */
+snippet source
+	/*
+	*
+	*	Author: Philipp Zschoche
+	*	GitHub: https://github.com/zschoche
+	*
+	*/
+
+	#include "${1:`Filename('$1', 'header')`}.cpp"
+
+
 # member function
 snippet func
 	${1:void} ${2:`Filename('$2', 'UNTITLED'))`}::${3:name}(${4:args})
@@ -44,6 +56,12 @@ snippet func
 	}
 # getter
 snippet getter
+	inline ${1:type} ${2:name}() const
+	{
+		return m_$2;
+	}
+#setter
+snippet setter
 	inline void ${1:name}(const ${2:type}& value) const
 	{
 		m_$1 = value;
