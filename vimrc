@@ -23,16 +23,35 @@ map <C-A-Right> :wincmd l<CR>
 map <C-A-Up> :wincmd k<CR>
 map <C-A-Down> :wincmd j<CR>
 
+
+
+
+"F12
 nmap <silent> <F12> :CommandTBuffer<CR>
-nmap <C-F12> :CommandT<CR>
-
 imap <F12> <Esc>:CommandTBuffer<CR>
+nmap <C-F12> :CommandT<CR>
 imap <C-F12> <Esc>:CommandT<CR>
-
-
-
-ino <C-F11> <c-r>=TriggerSnippet()<cr>  
-snor <C-F11> <esc>i<right><c-r>=TriggerSnippet()<cr>
+"F11
+ino <F11> <c-r>=TriggerSnippet()<cr>  
+snor <F11> <esc>i<right><c-r>=TriggerSnippet()<cr>
+"F10
+"F9
+"F8
+"F7
+"F6
+"F5
+"F4
+nmap <F4> :Cunmapkeys<CR>
+imap <F4> <Esc>:Cunmapkeys<CR>
+"F3
+nmap <F3> :Cmapkeys<CR>
+imap <F3> <Esc>:Cmapkeys<CR>
+"F2
+nmap <F2> :nbclose<CR>
+imap <F2> <Esc>:nbclose<CR>
+"F1
+nmap <F1> :Pyclewn<CR>
+imap <F1> <Esc>:Pyclewn<CR>
 
 let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc,abs:/Developer/usr/clang-ide/lib/c++/v1,abs:/usr/local/include,abs:/usr/include/'
 
@@ -46,6 +65,3 @@ command MT wa | make | !./test
 command LL wa | !pdflatex %
 
 Bundle 'Valloric/YouCompleteMe'
-
-
-
