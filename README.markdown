@@ -1,4 +1,4 @@
-Quickly install with:
+Notes:
 
     git clone git://github.com/msanders/snipmate.vim.git
 	cd snipmate.vim
