@@ -35,6 +35,8 @@ imap <C-F12> <Esc>:CommandT<CR>
 ino <F11> <c-r>=TriggerSnippet()<cr>  
 snor <F11> <esc>i<right><c-r>=TriggerSnippet()<cr>
 "F10
+map <F10> :pyf $HOME/.vim/bin/clang-format.py<CR>
+imap <F10> <ESC>:pyf $HOME/.vim/bin/clang-format.py<CR>i
 "F9
 "F8
 "F7
@@ -63,5 +65,9 @@ command T CommandT
 command MM wa | make
 command MT wa | make | !./test
 command LL wa | !pdflatex %
+
+
+command Format execute '!$HOME/.vim/bin/form_matters %' | edit 
+command FormatAll !find . -type f -iname '*.[c|h]pp' -exec $HOME/.vim/bin/form_matters {} \;
 
 Bundle 'Valloric/YouCompleteMe'

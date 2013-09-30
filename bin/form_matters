@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ -f ".clang-format-dump" ]; then
+   	rm .clang-format-dump
+fi
+
+for i in $1
+do
+	clang-format $i > .clang-format-dump
+	if [ $? -eq 0 ]; then
+		rm $i
+		mv .clang-format-dump $i
+	fi
+done
