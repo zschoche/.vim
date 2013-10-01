@@ -60,7 +60,7 @@ let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc,
 filetype plugin on
 set autoindent
 set number
-colorscheme codeschool
+colorscheme monokai
 command T CommandT
 command MM wa | make
 command MT wa | make | !./test
