@@ -63,9 +63,9 @@ command T CommandT
 command MM wa | make
 command MT wa | make | !./test
 command LL wa | !pdflatex %
-
-
 command Format w | execute '!$HOME/.vim/bin/form_matters %' | edit 
+command Fmt Format
 command FormatAll !find . -type f -iname '*.[c|h]pp' -exec $HOME/.vim/bin/form_matters {} \;
 command FormatInstall !cp -f ~/.vim/clang-format-config ./.clang-format 
+
 Bundle 'Valloric/YouCompleteMe'
