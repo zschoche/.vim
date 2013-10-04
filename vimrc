@@ -23,9 +23,6 @@ map <C-A-Right> :wincmd l<CR>
 map <C-A-Up> :wincmd k<CR>
 map <C-A-Down> :wincmd j<CR>
 
-
-
-
 "F12
 nmap <silent> <F12> :CommandTBuffer<CR>
 imap <F12> <Esc>:CommandTBuffer<CR>
@@ -56,6 +53,7 @@ nmap <F1> :Pyclewn<CR>
 imap <F1> <Esc>:Pyclewn<CR>
 
 let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc,abs:/Developer/usr/clang-ide/lib/c++/v1,abs:/usr/local/include,abs:/usr/include/'
+set wildignore+=CMakeFiles,*.o,*.obj,.git,.svn,CMakeCache.txt,*.d
 
 filetype plugin on
 set autoindent
