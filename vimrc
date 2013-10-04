@@ -34,11 +34,6 @@ snor <F11> <esc>i<right><c-r>=TriggerSnippet()<cr>
 "F10
 map <F10> :pyf $HOME/.vim/bin/clang-format.py<CR>
 imap <F10> <ESC>:pyf $HOME/.vim/bin/clang-format.py<CR>i
-"F9
-"F8
-"F7
-"F6
-"F5
 "F4
 nmap <F4> :Cunmapkeys<CR>
 imap <F4> <Esc>:Cunmapkeys<CR>
