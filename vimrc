@@ -54,12 +54,21 @@ filetype plugin on
 set autoindent
 set number
 colorscheme monokai
+
+function! Format()
+	if &filetype == "go"
+		w | execute 'go fmt' | edit
+	else
+		w | execute '!$HOME/.vim/bin/form_matters %' | edit	
+	endif
+endfunction
+
+
 command T CommandT
 command MM wa | make
 command MT wa | make | !./test
 command LL wa | !pdflatex %
-command Format w | execute '!$HOME/.vim/bin/form_matters %' | edit 
-command Fmt Format
+command Fmt call Format
 command FormatAll !find . -type f -iname '*.[c|h]pp' -exec $HOME/.vim/bin/form_matters {} \;
 command FormatInstall !cp -f ~/.vim/clang-format-config ./.clang-format 
 
