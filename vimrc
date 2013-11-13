@@ -34,6 +34,11 @@ snor <F11> <esc>i<right><c-r>=TriggerSnippet()<cr>
 "F10
 map <F10> :pyf $HOME/.vim/bin/clang-format.py<CR>
 imap <F10> <ESC>:pyf $HOME/.vim/bin/clang-format.py<CR>i
+"F5
+nmap <F5> :vsplit<CR>
+imap <F5> <Esc>:vsplit<CR>
+nmap <C-F5> :split<CR>
+imap <C-F5> <Esc>:split<CR>
 "F4
 nmap <F4> :Cunmapkeys<CR>
 imap <F4> <Esc>:Cunmapkeys<CR>
@@ -68,7 +73,7 @@ command T CommandT
 command MM wa | make
 command MT wa | make | !./test
 command LL wa | !pdflatex %
-command Fmt call Format
+command Fmt call Format()
 command FormatAll !find . -type f -iname '*.[c|h]pp' -exec $HOME/.vim/bin/form_matters {} \;
 command FormatInstall !cp -f ~/.vim/clang-format-config ./.clang-format 
 
