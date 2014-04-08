@@ -3,6 +3,12 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 filetype plugin indent on  
+syntax on
+
+"<test>
+inoremap jk <ESC>
+"</test>
+
 
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>a
@@ -55,7 +61,6 @@ imap <F1> <Esc>:Pyclewn<CR>
 let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc,abs:/Developer/usr/clang-ide/lib/c++/v1,abs:/usr/local/include,abs:/usr/include/'
 set wildignore+=CMakeFiles,*.o,*.obj,.git,.svn,CMakeCache.txt,*.d
 
-filetype plugin on
 set autoindent
 set number
 colorscheme monokai
@@ -71,7 +76,7 @@ endfunction
 
 command T CommandT
 command MM wa | make
-command MT wa | make | !./test
+command MT wa | make test | !./test
 command LL wa | !pdflatex %
 command Fmt call Format()
 command FormatAll !find . -type f -iname '*.[c|h]pp' -exec $HOME/.vim/bin/form_matters {} \;
