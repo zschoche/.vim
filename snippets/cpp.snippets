@@ -1,0 +1,73 @@
+
+#header
+snippet header
+	/*
+	*
+	*	Author: Philipp Zschoche, https://zschoche.org
+	*
+	*/
+	#ifndef __${1:`toupper(vim_snippets#Filename('$1', 'name'))`}_HPP__
+	#define __$1_HPP__
+
+	${0}
+
+	#endif /* __$1_HPP__ */
+
+# struct
+snippet struct
+	struct ${1:`vim_snippets#Filename('$1', 'name')`} {
+
+		$1(${2}) {}
+
+	};
+
+# class
+snippet class
+	class ${1:`vim_snippets#Filename('$1', 'name')`} {
+
+	public:
+		$1(${2}) {}
+
+	};
+# member function implementation
+snippet mfun
+	${4:void} ${1:`vim_snippets#Filename('$1', 'ClassName')`}::${2:memberFunction}(${3}) {
+		${0}
+	}
+# namespace
+snippet namespace
+	namespace ${1:`vim_snippets#Filename('', 'my')`} {
+		${0}
+	} /* namespace $1 */
+##
+## Input/Output
+# std::cout
+snippet cout
+	std::cout << ${1} << std::endl;
+# std::cin
+snippet cin
+	std::cin >> ${1};
+##
+## Iteration
+# for i
+snippet fori
+	for (int ${2:i} = 0; $2 < ${1:count}; $2${3:++}) {
+		${4}
+	}
+
+# foreach
+snippet fore
+	for (${1:auto} ${2:i} : ${3:container}) {
+		${4}
+	}
+# iterator
+snippet iter
+	for (${1:std::vector}<${2:type}>::${3:const_iterator} ${4:i} = ${5:container}.begin(); $4 != $5.end(); ++$4) {
+		${6}
+	}
+
+# auto iterator
+snippet itera
+	for (auto ${1:i} = ${2:container}.begin(); $1 != $2.end(); ++$1) {
+		${3:std::cout << *$1 << std::endl;}
+	}
