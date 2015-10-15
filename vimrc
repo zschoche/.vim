@@ -10,19 +10,27 @@ call vundle#rc()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Rip-Rip/clang_complete'
 Plugin 'lsdr/monokai'
 Plugin 'kien/ctrlp.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'Blackrush/vim-gocode'
+Plugin 'dag/vim2hs'
 
 
 filetype plugin indent on
 syntax on
+set backspace=indent,eol,start
+set mouse=a
 
-"<test>
-"inoremap jk <ESC>
-""</test>
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
 
 
 nmap <c-s> :w<CR>
@@ -39,10 +47,10 @@ set incsearch
 set ignorecase
 set smartcase
 
-map <C-A-Left> :wincmd h<CR>
-map <C-A-Right> :wincmd l<CR>
-map <C-A-Up> :wincmd k<CR>
-map <C-A-Down> :wincmd j<CR>
+map <Left> :wincmd h<CR>
+map <Right> :wincmd l<CR>
+map <Up> :wincmd k<CR>
+map <Down> :wincmd j<CR>
 
 "F12
 nmap <silent> <F12> :CtrlP<CR>
@@ -58,8 +66,8 @@ imap <C-F12> <Esc>:CtrlP<CR>
 ""F5
 nmap <F5> :vsplit<CR>
 imap <F5> <Esc>:vsplit<CR>
-nmap <C-F5> :split<CR>
-imap <C-F5> <Esc>:split<CR>
+nmap <F6> :split<CR>
+imap <F6> <Esc>:split<CR>
 "F4
 "nmap <F4> :Cunmapkeys<CR>
 "imap <F4> <Esc>:Cunmapkeys<CR>
@@ -76,11 +84,12 @@ imap <F1> <Esc>:Pyclewn<CR>
 let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc,abs:/Developer/usr/clang-ide/lib/c++/v1,abs:/usr/local/include,abs:/usr/include/'
 let g:ycm_show_diagnostics_ui = 0 
 "let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
-set wildignore+=CMakeFiles,*.o,*.obj,.git,.svn,CMakeCache.txt,*.d
+set wildignore+=CMakeFiles,*.o,*.so,*swp,*.obj,.git,.svn,CMakeCache.txt,*.d,*/boost/*
 
 set autoindent
 set number
-colorscheme monokai
+let g:rehash256 = 1
+colorscheme molokai
 
 function! Format()
 	if &filetype == "go"
@@ -91,10 +100,8 @@ function! Format()
 endfunction
 
 
-command T CommandT
-command MM wa | make
-command MT wa | make test | !./test
-command LL wa | !pdflatex %
+command MM wa | make | redraw! | cw
+command MT wa | make check | redraw! | cw
 command Fmt call Format()
 command FormatAll !find . -type f -iname '*.[c|h]pp' -exec $HOME/.vim/bin/form_matters {} \;
 command FormatInstall !cp -f ~/.vim/clang-format-config ./.clang-format 
