@@ -99,9 +99,25 @@ function! Format()
 	endif
 endfunction
 
+function! Build()
+	if filereadable("build.ninja")
+		execute '!ninja'
+	else
+		 make 
 
-command MM wa | make | redraw! | cw
-command MT wa | make check | redraw! | cw
+	endif
+endfunction
+
+function! BuildCheck()
+	if filereadable("build.ninja")
+		execute '!ninja check'
+	else
+		 !make check
+
+	endif
+endfunction
+command MM wa | call Build() | redraw! | cw
+command MT wa | call BuildCheck() | redraw! | cw
 command Fmt call Format()
 command FormatAll !find . -type f -iname '*.[c|h]pp' -exec $HOME/.vim/bin/form_matters {} \;
 command FormatInstall !cp -f ~/.vim/clang-format-config ./.clang-format 
