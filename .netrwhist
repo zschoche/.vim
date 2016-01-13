@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/philipp/projects/multicore-systems/src_assignment4/out'
+let g:netrw_dirhist_2='/Users/philipp/projects/multicore-systems/src_assignment4'
+let g:netrw_dirhist_3='/Users/philipp/.ssh'
+let g:netrw_dirhist_4='/Users/philipp/projects/distributed-algorithms/05'
+let g:netrw_dirhist_5='/Users/philipp/projects'

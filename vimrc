@@ -125,7 +125,6 @@ command Fmt call Format()
 command FormatAll !find . -type f -iname '*.[c|h]pp' -exec $HOME/.vim/bin/form_matters {} \;
 command FormatInstall !cp -f ~/.vim/clang-format-config ./.clang-format 
 
-
 let g:UltiSnipsExpandTrigger="<F11>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
