@@ -84,6 +84,11 @@ imap <F3> <Esc>:Cmapkeys<CR>
 nmap <F1> :Pyclewn<CR>
 imap <F1> <Esc>:Pyclewn<CR>
 
+
+set encoding=utf-8  " The encoding displayed.
+set fileencoding=utf-8  " The encoding written to file.
+
+
 let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc,abs:/Developer/usr/clang-ide/lib/c++/v1,abs:/usr/local/include,abs:/usr/include/'
 let g:ycm_show_diagnostics_ui = 0 
 "let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
