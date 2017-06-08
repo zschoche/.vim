@@ -108,7 +108,9 @@ function! Format()
 endfunction
 
 function! Build()
-	if filereadable("build.ninja")
+	if isdirectory("build")
+		execute "!((tmux select-window -t 'build' && tmux send-keys 'make' C-m) || tmux new-window -n 'build')"
+	elseif filereadable("build.ninja")
 		execute '!ninja'
 	else
 		 make 
@@ -117,7 +119,9 @@ function! Build()
 endfunction
 
 function! BuildCheck()
-	if filereadable("build.ninja")
+	if isdirectory("build")
+		execute "!((tmux select-window -t 'build' && tmux send-keys 'make' C-m) || tmux new-window -n 'build')"
+	elseif filereadable("build.ninja")
 		execute '!ninja check'
 	else
 		 !make check
